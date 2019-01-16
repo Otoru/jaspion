@@ -13,7 +13,6 @@ app = Jaspion(__name__)
 
 @app.handle('heartbeat')
 def heartbeat(message):
-    data = getattr(message, 'headers')
     print(data)
 
 

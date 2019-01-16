@@ -1,27 +1,30 @@
 import functools
-import logging
 
 from greenswitch import InboundESL
+from greenswitch.esl import ESLEvent
 import gevent
 
 
 class Jaspion(InboundESL):
-    def __init__(self, name):
-        self.name = name
-        self.hands = {}
+    def __init__(self, *args, **kwargs):
+        """Method created only to call the superclass method without
+        giving valid arguments."""
+        host = kwargs.get('host')
+        port = kwargs.get('port')
+        password = kwargs.get('password')
+        super().__init__(host, port, password)
 
-    def _addhand(self, event, function):
-        if event not in self.hands:
-            self.hands[event] = []
+    def _safe_exec_handler(self, handler: callable, event: ESLEvent):
+        """Overridden method to ensure that the event passed to
+        handlers is actually a dict instance with information
+        already processed."""
+        event = event.headers
+        super()._safe_exec_handler(handler, event)
 
-        if function in self.hands[event]:
-            return
-
-        self.hands[event].append(function)
-
-    def handle(self, event):
-        def decorator(function):
-            self._addhand(event, function)
+    def handle(self, event: str) -> callable:
+        """Decorator that allows the registration of new handlers."""
+        def decorator(function: callable):
+            self.register_handle(event, function)
             @functools.wraps(function)
             def wrapper(*args, **kwargs):
                 result = function(*args, **kwargs)
@@ -29,11 +32,17 @@ class Jaspion(InboundESL):
             return wrapper
         return decorator
 
+    def connect(self, host: str, port: int, password: str):
+        """Overwritten method to ensure that FreeSwitch information
+        is only required at connection time."""
+        self.host = host
+        self.port = port
+        self.password = password
+        super().connect()
+
     def run(self, host='127.0.0.1', port=8021, password='ClueCon'):
-        logging.debug('Try connect with %s:%s' % (host, password))
-        super().__init__(host, port, password)
-        self.event_handlers.update(self.hands)
-        self.connect()
-        logging.debug('Requesting events to the server.')
+        """Method called to perform the connection with the freeswitch
+        and request the events."""
+        self.connect(host, port, password)
         self.send('events plain ALL')
         self.process_events()
