@@ -2,6 +2,14 @@
 
 Python module developed to work with ESL (FreeSwitch).
 
+## Installation Instructions
+
+You can install the package in two ways:
+```python
+$ pip install jaspion                           # From pypi
+$ pip install https://github.com/Otoru/jaspion  # From source code
+```
+
 ## Example
 This is a simple example:
 
@@ -11,9 +19,21 @@ from jaspion import Jaspion
 
 app = Jaspion(__name__)
 
-@app.handle('heartbeat')
-def heartbeat(message):
-    print(data)
+@app.handle('sofia::register')
+def register(event):
+    domain = event['from-host']
+    username = event['from-user']
+    date = event['Event-Date-Local']
+
+    print(f'[{date}] {username}@{domain} - Registred.')
+
+@app.handle('sofia::unregister')
+def unregister(event):
+    domain = event['from-host']
+    username = event['from-user']
+    date = event['Event-Date-Local']
+
+    print(f'[{date}] {username}@{domain} - Unregistred.')
 
 
 if __name__ == "__main__":

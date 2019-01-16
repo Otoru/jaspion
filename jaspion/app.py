@@ -17,12 +17,30 @@ class Jaspion(InboundESL):
     def _safe_exec_handler(self, handler: callable, event: ESLEvent):
         """Overridden method to ensure that the event passed to
         handlers is actually a dict instance with information
-        already processed."""
+        already processed.
+        
+        Parameters
+        ----------
+        - handler: required
+            Callable that will be called to process the event.
+            The same should accept only a mandatory filing for
+            no exceptions to occur.
+        - event: required
+            ESLEvent instance with date already parsed.
+        """
         event = event.headers
         super()._safe_exec_handler(handler, event)
 
     def handle(self, event: str) -> callable:
-        """Decorator that allows the registration of new handlers."""
+        """Decorator that allows the registration of new handlers.
+        The event will be provided for the function in the form
+        of a Dict.
+        
+        Parameters
+        ----------
+        - event: required
+            Name of the event to be parsed..
+        """
         def decorator(function: callable):
             self.register_handle(event, function)
             @functools.wraps(function)
@@ -34,15 +52,31 @@ class Jaspion(InboundESL):
 
     def connect(self, host: str, port: int, password: str):
         """Overwritten method to ensure that FreeSwitch information
-        is only required at connection time."""
+        is only required at connection time.
+
+        Parameters
+        ----------
+        - host: required
+            FreeSwitch IP Address.
+        - port: required
+            Port where the ESL service is listening..
+        - password: required
+            Password used for authentication..
+        """
         self.host = host
         self.port = port
         self.password = password
         super().connect()
 
-    def run(self, host='127.0.0.1', port=8021, password='ClueCon'):
+    def run(self,
+            host: str = '127.0.0.1',
+            port: int = 8021,
+            password: str = 'ClueCon'):
         """Method called to perform the connection with the freeswitch
-        and request the events."""
+        and request the events.
+        For more details of the parameters., see the 'connect' method.
+        """
         self.connect(host, port, password)
+        # TODO: Find a way to request only events that have a handler.
         self.send('events plain ALL')
         self.process_events()
