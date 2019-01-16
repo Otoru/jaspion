@@ -20,3 +20,9 @@ def heartbeat(message):
 if __name__ == "__main__":
     app.run('127.0.0.1', 8021, 'ClueCon')
 ```
+
+## Todo
+- [X] Create a decorator to handle events.
+- [ ] Create a CLI to run projects.
+- [ ] Create filter to request only the marked events.
+- [ ] Create a Documentation.
