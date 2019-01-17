@@ -1,7 +1,3 @@
-# Jaspion
-
-Python module developed to work with ESL (FreeSwitch).
-
 ## What is Jaspion?
 
 Jaspion is a python library designed to process events received from FreeSwitch via ESL.
