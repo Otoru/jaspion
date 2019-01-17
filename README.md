@@ -18,6 +18,10 @@ $ pip install jaspion                           # From pypi
 $ pip install https://github.com/Otoru/jaspion  # From source code
 ```
 
+## Where is the documentation?
+
+Click [here](https://otoru.github.io/jaspion/) to view the complete documentation.
+
 ## Example
 This is a list with example codes:
 
