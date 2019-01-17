@@ -1,3 +1,5 @@
+import pprint
+import logging
 import functools
 
 from greenswitch import InboundESL
@@ -18,7 +20,7 @@ class Jaspion(InboundESL):
         """Overridden method to ensure that the event passed to
         handlers is actually a dict instance with information
         already processed.
-        
+
         Parameters
         ----------
         - handler: required
@@ -28,14 +30,18 @@ class Jaspion(InboundESL):
         - event: required
             ESLEvent instance with date already parsed.
         """
-        event = event.headers
-        super()._safe_exec_handler(handler, event)
+        data = event.headers
+        try:
+            handler(data)
+        except:
+            logging.exception('ESL %s raised exception.' % handler.__name__)
+            logging.error(pprint.pformat(event))
 
     def handle(self, event: str) -> callable:
         """Decorator that allows the registration of new handlers.
         The event will be provided for the function in the form
         of a Dict.
-        
+
         Parameters
         ----------
         - event: required
@@ -47,6 +53,28 @@ class Jaspion(InboundESL):
             def wrapper(*args, **kwargs):
                 result = function(*args, **kwargs)
                 return result
+            return wrapper
+        return decorator
+
+    def filtrate(self, key: str, value: str):
+        """Method that allows to filter the events according
+        to a set 'key', 'value'.
+        
+        Parameters
+        ----------
+        - key: required
+            Key to be searched in the event.
+        - value: required
+            Value needed in the last key.
+        """
+        def decorator(function: callable):
+            @functools.wraps(function)
+            def wrapper(message):
+                if isinstance(message, dict):
+                    if key in message:
+                        if message[key] == value:
+                            result = function(message)
+                            return result
             return wrapper
         return decorator
 

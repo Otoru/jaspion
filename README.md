@@ -20,6 +20,7 @@ from jaspion import Jaspion
 app = Jaspion(__name__)
 
 @app.handle('sofia::register')
+@app.filtrate('from-user', '1000')
 def register(event):
     domain = event['from-host']
     username = event['from-user']
@@ -28,6 +29,7 @@ def register(event):
     print(f'[{date}] {username}@{domain} - Registred.')
 
 @app.handle('sofia::unregister')
+@app.filtrate('from-user', '1000')
 def unregister(event):
     domain = event['from-host']
     username = event['from-user']
