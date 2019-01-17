@@ -21,6 +21,7 @@ app = Jaspion(__name__)
 
 @app.handle('sofia::register')
 @app.filtrate('from-user', '1000')
+@app.haskey('from-host')
 def register(event):
     domain = event['from-host']
     username = event['from-user']
@@ -30,6 +31,7 @@ def register(event):
 
 @app.handle('sofia::unregister')
 @app.filtrate('from-user', '1000')
+@app.haskey('from-host')
 def unregister(event):
     domain = event['from-host']
     username = event['from-user']
