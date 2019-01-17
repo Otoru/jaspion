@@ -8,14 +8,6 @@ import gevent
 
 
 class Jaspion(InboundESL):
-    def __init__(self, *args, **kwargs):
-        """Method created only to call the superclass method without
-        giving valid arguments."""
-        host = kwargs.get('host')
-        port = kwargs.get('port')
-        password = kwargs.get('password')
-        super().__init__(host, port, password)
-
     def _safe_exec_handler(self, handler: callable, event: ESLEvent):
         """Overridden method to ensure that the event passed to
         handlers is actually a dict instance with information
@@ -34,8 +26,8 @@ class Jaspion(InboundESL):
         try:
             handler(data)
         except:
-            logging.exception('ESL %s raised exception.' % handler.__name__)
-            logging.error(pprint.pformat(event))
+            logging.debug('ESL %s raised exception.' % handler.__name__)
+            logging.debug(pprint.pformat(event))
 
     def handle(self, event: str) -> callable:
         """Decorator that allows the registration of new handlers.
@@ -56,87 +48,16 @@ class Jaspion(InboundESL):
             return wrapper
         return decorator
 
-    def filtrate(self, key: str, value: str):
-        """Method that allows to filter the events according
-        to a set 'key', 'value'. No need 'haskey' to work.
+    def run(self):
+        """Method called to request the events.
         
-        Parameters
-        ----------
-        - key: required
-            Key to be searched in the event.
-        - value: required
-            Value needed in the last key.
-        """
-        def decorator(function: callable):
-            @functools.wraps(function)
-            def wrapper(message):
-                if isinstance(message, dict):
-                    if key in message:
-                        if message[key] == value:
-                            result = function(message)
-                            return result
-            return wrapper
-        return decorator
-
-    def haskey(key: str):
-        """Ensures that only events with the entered key will be
-        processed by the function.
-
-        Parameters
-        ----------
-        - key: required
-            Key to be searched in the event.
-        """
-        def decorator(function: callable):
-            @functools.wraps(function)
-            def wrapper(message):
-                if isinstance(message, dict):
-                    if key in message:
-                        result = function(message)
-                        return result
-            return wrapper
-        return decorator
-
-    def connect(self, host: str, port: int, password: str):
-        """Overwritten method to ensure that FreeSwitch information
-        is only required at connection time.
-
-        Parameters
-        ----------
-        - host: required
-            FreeSwitch IP Address.
-        - port: required
-            Port where the ESL service is listening..
-        - password: required
-            Password used for authentication.
-
-        Raises
-        ------
-        - greenswitch.NotConnectedError:
-            Connection failed.
-        - ValueError:
-            Invalid password.
-        """
-        self.host = host
-        self.port = port
-        self.password = password
-        super().connect()
-
-    def run(self,
-            host: str = '127.0.0.1',
-            port: int = 8021,
-            password: str = 'ClueCon'):
-        """Method called to perform the connection with the freeswitch
-        and request the events.
-        For more details of the parameters., see the 'connect' method.
-
         Raises
         ------
         - greenswitch.NotConnectedError:
             Connection failed while attempting to send command
             to FreeSwitch.
         """
-        self.connect(host, port, password)
+        self.connect()
         # TODO: Find a way to request only events that have a handler.
         self.send('events plain ALL')
         self.process_events()

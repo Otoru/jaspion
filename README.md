@@ -15,13 +15,13 @@ This is a simple example:
 
 ```python 
 from jaspion import Jaspion
+from jaspion.utils import filtrate
 
 
-app = Jaspion(__name__)
+app = Jaspion('127.0.0.1', 8021, 'ClueCon')
 
 @app.handle('sofia::register')
-@app.filtrate('from-user', '1000')
-@app.haskey('from-host')
+@filtrate('from-user', '1000')
 def register(event):
     domain = event['from-host']
     username = event['from-user']
@@ -30,8 +30,7 @@ def register(event):
     print(f'[{date}] {username}@{domain} - Registred.')
 
 @app.handle('sofia::unregister')
-@app.filtrate('from-user', '1000')
-@app.haskey('from-host')
+@filtrate('from-user', '1000')
 def unregister(event):
     domain = event['from-host']
     username = event['from-user']
@@ -41,11 +40,12 @@ def unregister(event):
 
 
 if __name__ == "__main__":
-    app.run('127.0.0.1', 8021, 'ClueCon')
+    app.run()
 ```
 
 ## To-Do List
 - [X] Create the decorator to handle events.
 - [ ] Create a CLI to run projects.
-- [ ] Create filter to request only the marked events.
+- [X] Create filter to request only the marked events.
 - [ ] Create the Documentation.
+- [ ] Create Class to 'lazzy append' handlers.

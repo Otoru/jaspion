@@ -30,7 +30,12 @@ setup(
         'Topic :: System :: Networking'
     ],
     keywords='ESL, FreeSwitch',
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
+    packages=find_packages(exclude=[
+        'contrib',
+        'docs',
+        'tests',
+        'examples'
+    ]),
     install_requires=[
         'greenswitch',
     ],
@@ -40,7 +45,7 @@ setup(
         ],
     },
     zip_safe=False,
-    # Todo: Create a CLI to run projects.
+    # TODO: Create a CLI to run projects.
     #entry_points={
     #    'console_scripts': [
     #        'jaspion=jaspion.cli:main',
