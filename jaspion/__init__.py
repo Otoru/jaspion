@@ -1,4 +1,4 @@
-from jaspion.app import Jaspion
+from .app import Jaspion
 
 
 __all__ = ['Jaspion']

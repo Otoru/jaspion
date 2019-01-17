@@ -61,7 +61,14 @@ class Jaspion(InboundESL):
         - port: required
             Port where the ESL service is listening..
         - password: required
-            Password used for authentication..
+            Password used for authentication.
+
+        Raises
+        ------
+        - greenswitch.NotConnectedError:
+            Connection failed.
+        - ValueError:
+            Invalid password.
         """
         self.host = host
         self.port = port
@@ -75,6 +82,12 @@ class Jaspion(InboundESL):
         """Method called to perform the connection with the freeswitch
         and request the events.
         For more details of the parameters., see the 'connect' method.
+
+        Raises
+        ------
+        - greenswitch.NotConnectedError:
+            Connection failed while attempting to send command
+            to FreeSwitch.
         """
         self.connect(host, port, password)
         # TODO: Find a way to request only events that have a handler.
