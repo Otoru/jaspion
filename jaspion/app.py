@@ -37,7 +37,7 @@ class Jaspion(InboundESL):
         Parameters
         ----------
         - event: required
-            Name of the event to be parsed..
+            Name of the event to be parsed.
         """
         def decorator(function: callable):
             self.register_handle(event, function)

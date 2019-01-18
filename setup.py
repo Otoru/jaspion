@@ -53,6 +53,7 @@ setup(
     #},
     project_urls={
         'Bug Reports': 'https://github.com/Otoru/Jaspion/issues',
-        'Source': 'https://github.com/Otoru/Jaspion',
+        'Source Code': 'https://github.com/Otoru/Jaspion',
+        'Documentation': 'https://github.com/Otoru/jaspion/blob/master/README.md',
     }
 )
