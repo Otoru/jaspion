@@ -1,4 +1,4 @@
-theme: jekyll-theme-slate
+theme: jekyll-theme-cayman
 title: Welcome to Jaspion Docs
 description: FreeSwitch event handler with python.
 show_downloads: false
