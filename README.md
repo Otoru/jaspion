@@ -10,6 +10,7 @@ FreeSWITCH is a free and open-source application server for real-time communicat
 
 ESL is a way to communicate with FreeSwitch. See more details [here](https://freeswitch.org/confluence/display/FREESWITCH/Event+Socket+Library).
 
-## Where is the documentation?
-
-Click [here](https://otoru.github.io/jaspion/) to view the complete documentation.
+## Docs
+- [Installation Instructions](./docs/installation_instructions.md)
+- [getting started with examples](./docs/examples.md)
+- [To-Do list](./docs/to-do-list.md)
