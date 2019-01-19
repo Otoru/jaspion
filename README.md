@@ -12,7 +12,7 @@ ESL is a way to communicate with FreeSwitch. See more details [here](https://fre
 
 ## Docs
 - [Installation Instructions](./docs/installation_instructions.md)
-- [Get Started](.docs/get_started.md)
+- [Get Started](./docs/get_started.md)
 - [Examples](./docs/examples.md)
 - [Package tools](./docs/tools.md)
 - [To-Do list](./docs/to-do-list.md)
