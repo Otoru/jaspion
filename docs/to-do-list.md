@@ -6,3 +6,4 @@
 - [X] Create Class to 'lazzy append' handlers.
 - [ ] Write new examples.
 - [ ] Create a WebSocket server to send events after handle.
+- [ ] Allow handlers to send commands to freeswitch.
