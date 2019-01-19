@@ -15,6 +15,7 @@ freeswitch = {
 # Instance of Jaspion
 app = Jaspion(__name__, **freeswitch)
 
+
 # Handler to 'sofia::register' event and filter to extension 1000.
 @app.handle('sofia::register')
 @filtrate('from-user', '1000')
@@ -24,6 +25,7 @@ def register(event):
     date = event['Event-Date-Local']
 
     print(f'[{date}] {username}@{domain} - Registred.')
+
 
 # Handler to 'sofia::unregister' event and filter to extension 1000.
 @app.handle('sofia::unregister')

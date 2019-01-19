@@ -1,12 +1,8 @@
-import pprint
-import logging
-import functools
-
 from greenswitch import InboundESL
 from greenswitch.esl import ESLEvent
-import gevent
 
 from jaspion.sketch import Sketch
+
 
 class Jaspion(Sketch, InboundESL):
     def __init__(self, name: str, *args, **kwargs):
@@ -31,15 +27,11 @@ class Jaspion(Sketch, InboundESL):
             ESLEvent instance with date already parsed.
         """
         data = event.headers
-        try:
-            handler(data)
-        except:
-            logging.debug('ESL %s raised exception.' % handler.__name__)
-            logging.debug(pprint.pformat(event))
+        handler(data)
 
     def run(self):
         """Method called to request the events.
-        
+
         Raises
         ------
         - greenswitch.NotConnectedError:

@@ -9,7 +9,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='Jaspion',
-    version='0.2.1',
+    version='0.3.0',
     description='FreeSwitch Event Handler based in Flask.',
     include_package_data=True,
     license='MIT',
@@ -47,14 +47,14 @@ setup(
     },
     zip_safe=False,
     # TODO: Create a CLI to run projects.
-    #entry_points={
+    # entry_points={
     #    'console_scripts': [
     #        'jaspion=jaspion.cli:main',
     #    ],
-    #},
+    # },
     project_urls={
         'Bug Reports': 'https://github.com/Otoru/Jaspion/issues',
         'Source Code': 'https://github.com/Otoru/Jaspion',
-        'Documentation': 'https://github.com/Otoru/jaspion/blob/master/README.md',
+        'Docs': 'https://github.com/Otoru/jaspion/blob/master/README.md',
     }
 )

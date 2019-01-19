@@ -4,7 +4,7 @@ import functools
 def filtrate(key: str, value: str):
     """Method that allows to filter the events according
     to a set 'key', 'value'. No need 'haskey' to work.
-    
+
     Parameters
     ----------
     - key: required
@@ -22,6 +22,7 @@ def filtrate(key: str, value: str):
                         return result
         return wrapper
     return decorator
+
 
 def haskey(key: str):
     """Ensures that only events with the entered key will be

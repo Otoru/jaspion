@@ -1,5 +1,4 @@
 from collections.abc import MutableMapping
-from collections import Counter
 import functools
 import reprlib
 
@@ -77,7 +76,7 @@ class Sketch(MutableMapping):
     def update(self, other: object):
         """Method to be used to record Sketch's instance of
         Jaspion or even concatenated Sketch's.
-        
+
         Parameters
         ----------
         - other: required
@@ -102,7 +101,7 @@ class Sketch(MutableMapping):
     def register_handle(self, event: str, function: callable):
         """Function used to add a function to 'event handlers'
         associated with the event reported.
-        
+
         Parameters
         ----------
         - event: required
@@ -124,6 +123,7 @@ class Sketch(MutableMapping):
         """
         def decorator(function: callable):
             self.register_handle(event, function)
+
             @functools.wraps(function)
             def wrapper(*args, **kwargs):
                 result = function(*args, **kwargs)
@@ -132,8 +132,10 @@ class Sketch(MutableMapping):
         return decorator
 
     def __repr__(self):
-        """."""
+        """Creates a valid representation for class
+        and its subclasses.
+        """
         name = type(self).__name__
         events = reprlib.repr(self.event_handlers.keys())
         key = (events.find('[')+1)
-        return '%s(%s)'% (name, events[key: -2])
+        return '%s(%s)' % (name, events[key: -2])
