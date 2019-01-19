@@ -135,7 +135,13 @@ class Sketch(MutableMapping):
         """Creates a valid representation for class
         and its subclasses.
         """
-        name = type(self).__name__
-        events = reprlib.repr(self.event_handlers.keys())
-        key = (events.find('[')+1)
-        return '%s(%s)' % (name, events[key: -2])
+        name = self.name
+        clss = type(self).__name__
+        if not self.event_handlers:
+            events = '[]'
+        else:
+            repre = reprlib.repr(self.event_handlers.keys())
+            key = (repre.find('[')+1)
+            events = repre[key: -2]
+
+        return '%s(name=%s, events=%s)' % (clss, name, events)
