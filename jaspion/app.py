@@ -1,3 +1,6 @@
+import logging
+import pprint
+
 from greenswitch import InboundESL
 from greenswitch.esl import ESLEvent
 
@@ -26,8 +29,17 @@ class Jaspion(Sketch, InboundESL):
         - event: required
             ESLEvent instance with date already parsed.
         """
-        data = event.headers
-        handler(data)
+        try:
+            data = event.headers
+            handler(data)
+        except:
+            name = handler.__name__
+            logging.debug('ESL %s raised exception.' % name)
+            logging.debug(pprint.pformat(event.headers))
+
+    def start(self, *args, **kwargs):
+        """Method created to be overwritten."""
+        ...
 
     def run(self):
         """Method called to request the events.
@@ -38,6 +50,7 @@ class Jaspion(Sketch, InboundESL):
             Connection failed while attempting to send command
             to FreeSwitch.
         """
+        self.start()
         self.connect()
         # TODO: Find a way to request only events that have a handler.
         self.send('events plain ALL')

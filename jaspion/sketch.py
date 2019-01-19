@@ -8,7 +8,7 @@ class Sketch(MutableMapping):
         """Method used to save the Sketch name and create a
         dictionary instance in 'self.event_handlers'.
         """
-        self.name = name
+        self.__name__ = name
         self.event_handlers = {}
 
     def __contains__(self, key: str):
@@ -135,11 +135,10 @@ class Sketch(MutableMapping):
         """Creates a valid representation for class
         and its subclasses.
         """
-        name = self.name
+        name = self.__name__
         clss = type(self).__name__
-        if not self.event_handlers:
-            events = '[]'
-        else:
+        events = '[]'
+        if self.event_handlers:
             repre = reprlib.repr(self.event_handlers.keys())
             key = (repre.find('[')+1)
             events = repre[key: -2]
