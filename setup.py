@@ -41,7 +41,8 @@ setup(
     ],
     extras_require={
         'dev': [
-            'ipython'
+            'ipython',
+            'flake8'
         ],
     },
     zip_safe=False,

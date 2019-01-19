@@ -12,5 +12,6 @@ ESL is a way to communicate with FreeSwitch. See more details [here](https://fre
 
 ## Docs
 - [Installation Instructions](./docs/installation_instructions.md)
-- [getting started with examples](./docs/examples.md)
+- [Examples](./docs/examples.md)
+- [Package tools](./docs/tools.md)
 - [To-Do list](./docs/to-do-list.md)

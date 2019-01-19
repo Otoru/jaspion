@@ -6,8 +6,16 @@ from greenswitch import InboundESL
 from greenswitch.esl import ESLEvent
 import gevent
 
+from jaspion.sketch import Sketch
 
-class Jaspion(InboundESL):
+class Jaspion(Sketch, InboundESL):
+    def __init__(self, name: str, *args, **kwargs):
+        """Method created to perform the call of the two __init __ 's
+        present in the SuperClasses.
+        """
+        Sketch.__init__(self, name)
+        InboundESL.__init__(self, *args, **kwargs)
+
     def _safe_exec_handler(self, handler: callable, event: ESLEvent):
         """Overridden method to ensure that the event passed to
         handlers is actually a dict instance with information
@@ -28,25 +36,6 @@ class Jaspion(InboundESL):
         except:
             logging.debug('ESL %s raised exception.' % handler.__name__)
             logging.debug(pprint.pformat(event))
-
-    def handle(self, event: str) -> callable:
-        """Decorator that allows the registration of new handlers.
-        The event will be provided for the function in the form
-        of a Dict.
-
-        Parameters
-        ----------
-        - event: required
-            Name of the event to be parsed.
-        """
-        def decorator(function: callable):
-            self.register_handle(event, function)
-            @functools.wraps(function)
-            def wrapper(*args, **kwargs):
-                result = function(*args, **kwargs)
-                return result
-            return wrapper
-        return decorator
 
     def run(self):
         """Method called to request the events.

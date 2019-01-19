@@ -5,8 +5,17 @@ from jaspion import Jaspion
 from jaspion.utils import filtrate
 
 
-app = Jaspion(host='127.0.0.1', port=8021, password='ClueCon')
+# Freeswitch data to connection
+freeswitch = {
+    'host': '127.0.0.1',
+    'password': 'ClueCon',
+    'port': 8021
+}
 
+# Instance of Jaspion
+app = Jaspion(__name__, **freeswitch)
+
+# Handler to 'sofia::register' event and filter to extension 1000.
 @app.handle('sofia::register')
 @filtrate('from-user', '1000')
 def register(event):
@@ -16,6 +25,7 @@ def register(event):
 
     print(f'[{date}] {username}@{domain} - Registred.')
 
+# Handler to 'sofia::unregister' event and filter to extension 1000.
 @app.handle('sofia::unregister')
 @filtrate('from-user', '1000')
 def unregister(event):
@@ -27,4 +37,5 @@ def unregister(event):
 
 
 if __name__ == "__main__":
+    # Start Jaspion
     app.run()
