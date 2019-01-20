@@ -8,12 +8,12 @@ from jaspion.sketch import Sketch
 
 
 class Jaspion(Sketch, InboundESL):
-    def __init__(self, name: str, *args, **kwargs):
+    def __init__(self, name: str, host: str, port: int, password: str):
         """Method created to perform the call of the two __init __ 's
         present in the SuperClasses.
         """
         Sketch.__init__(self, name)
-        InboundESL.__init__(self, *args, **kwargs)
+        InboundESL.__init__(self, host, int(port), password)
 
     def _safe_exec_handler(self, handler: callable, event: ESLEvent):
         """Overridden method to ensure that the event passed to
