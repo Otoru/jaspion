@@ -1,4 +1,5 @@
 from collections.abc import MutableMapping
+from collections.abc import MutableSequence
 import functools
 import reprlib
 
@@ -44,7 +45,7 @@ class Sketch(MutableMapping):
 
     def __setitem__(self, event: str, handler: callable):
         """Direct access interface to 'self.handlers'."""
-        if not isinstance(handler, list):
+        if not isinstance(handler, MutableSequence):
             self.event_handlers[event] = [handler]
         else:
             self.event_handlers[event] = handler

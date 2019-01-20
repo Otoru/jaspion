@@ -15,4 +15,9 @@ ESL is a way to communicate with FreeSwitch. See more details [here](https://fre
 - [Get Started](./docs/get_started.md)
 - [Examples](./docs/examples.md)
 - [Package tools](./docs/tools.md)
+
+## How to contribute?
+
+If you want to contribute to the project, you may be taking a look at the list below. Any help is welcome.
+
 - [To-Do list](./docs/to-do-list.md)
