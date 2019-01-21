@@ -1,5 +1,6 @@
 from collections.abc import MutableMapping
 from collections.abc import MutableSequence
+from collections.abc import Callable
 import functools
 import reprlib
 
@@ -43,9 +44,9 @@ class Sketch(MutableMapping):
             return self.event_handlers[key]
         raise KeyError(key)
 
-    def __setitem__(self, event: str, handler: callable):
+    def __setitem__(self, event: str, handler: Callable):
         """Direct access interface to 'self.handlers'."""
-        if isinstance(handler, callable):
+        if isinstance(handler, Callable):
             self.event_handlers[event] = [handler]
         
         elif isinstance(handler, MutableSequence):
@@ -104,7 +105,7 @@ class Sketch(MutableMapping):
         """Direct access interface to 'self.handlers'."""
         self.event_handlers.clear()
 
-    def register_handle(self, event: str, function: callable):
+    def register_handle(self, event: str, function: Callable):
         """Function used to add a function to 'event handlers'
         associated with the event reported.
 
@@ -127,7 +128,7 @@ class Sketch(MutableMapping):
         - event: required
             Name of the event to be parsed.
         """
-        def decorator(function: callable):
+        def decorator(function: Callable):
             self.register_handle(event, function)
 
             @functools.wraps(function)
