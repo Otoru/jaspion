@@ -1,6 +1,6 @@
 from jaspion import Jaspion
 
-from {{cookiecutter.project_name}} import settings
+from {{cookiecutter.project_slug}} import settings
 
 
 app = Jaspion(__name__, **settings.freeswitch)

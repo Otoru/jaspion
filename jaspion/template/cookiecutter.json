@@ -6,5 +6,6 @@
     "freeswitch_host": "127.0.0.1",
     "freeswitch_password": "ClueCon",
     "freeswitch_port": 8021,
-    "author": "God"
+    "author": "God",
+    "email": "contact@example.com"
 }
