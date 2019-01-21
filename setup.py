@@ -38,6 +38,8 @@ setup(
     ]),
     install_requires=[
         'greenswitch',
+        'cookiecutter',
+        'click',
     ],
     extras_require={
         'dev': [
@@ -46,12 +48,11 @@ setup(
         ],
     },
     zip_safe=False,
-    # TODO: Create a CLI to run projects.
-    # entry_points={
-    #    'console_scripts': [
-    #        'jaspion=jaspion.cli:main',
-    #    ],
-    # },
+    entry_points={
+       'console_scripts': [
+           'jaspion=jaspion.cli:main',
+       ],
+    },
     project_urls={
         'Bug Reports': 'https://github.com/Otoru/Jaspion/issues',
         'Source Code': 'https://github.com/Otoru/Jaspion',

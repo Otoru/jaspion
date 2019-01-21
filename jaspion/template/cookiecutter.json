@@ -1,0 +1,10 @@
+{
+    "project_name": "My Jaspion Project",
+    "version": "1.0.0",
+    "description":"A simple project, but made with love.",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "freeswitch_host": "127.0.0.1",
+    "freeswitch_password": "ClueCon",
+    "freeswitch_port": 8021,
+    "author": "God"
+}
