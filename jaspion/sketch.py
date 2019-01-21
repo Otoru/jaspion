@@ -45,10 +45,15 @@ class Sketch(MutableMapping):
 
     def __setitem__(self, event: str, handler: callable):
         """Direct access interface to 'self.handlers'."""
-        if not isinstance(handler, MutableSequence):
+        if isinstance(handler, callable):
             self.event_handlers[event] = [handler]
-        else:
+        
+        elif isinstance(handler, MutableSequence):
             self.event_handlers[event] = handler
+        
+        else:
+            name = type(handler).__name__
+            raise TypeError('"%s" not not is valid object' % name)
 
     def __delitem__(self, key: str):
         """Direct access interface to 'self.handlers'."""
