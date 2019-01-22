@@ -4,7 +4,7 @@ from {{cookiecutter.project_slug}}.app import app
 from {{cookiecutter.project_slug}} import settings
 
 
-@click.group()
+@click.group(context_settings={'help_option_names': ('-h', '--help')})
 def main(): pass
 
 
@@ -13,13 +13,6 @@ def run():
     print('Start "%s" project...' % settings.name)
     print('Server: {host}:{port}'.format(**settings.freeswitch))
     app.run()
-
-
-@main.option('--version', '-v', help='Show project version.')
-def version():
-    print('Project: %s' % settings.name)
-    print('Description: %s' % settings.description)
-    print('Version: %s' % settings.version)
 
 
 if __name__ == "__main__":

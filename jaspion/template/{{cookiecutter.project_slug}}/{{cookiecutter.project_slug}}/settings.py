@@ -1,7 +1,15 @@
 import os
 
+
+# Project info
+name = "{{cookiecutter.project_name}}"
+description = "{{cookiecutter.description}}"
+version = "{{cookiecutter.version}}"
+
+
 # Project Directory
 here = os.path.dirname(os.path.realpath(__file__))
+
 
 # FreeSwitch connection data
 freeswitch = {
