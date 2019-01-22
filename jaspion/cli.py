@@ -1,11 +1,11 @@
 import os
-import sys
 
-from cookiecutter.main import cookiecutter
 import click
+from cookiecutter.main import cookiecutter
 
 
 here = os.path.dirname(os.path.realpath(__file__))
+
 
 @click.group()
 def main(): pass

@@ -14,11 +14,13 @@ def run():
     print('Server: {host}:{port}'.format(**settings.freeswitch))
     app.run()
 
+
 @main.option('--version', '-v', help='Show project version.')
 def version():
     print('Project: %s' % settings.name)
     print('Description: %s' % settings.description)
     print('Version: %s' % settings.version)
+
 
 if __name__ == "__main__":
     main()

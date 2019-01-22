@@ -1,11 +1,5 @@
 import os
 
-# Project Data
-name = "{{cookiecutter.project_name}}"
-description = "{{cookiecutter.description}}"
-slug = "{{cookiecutter.project_slug}}"
-version = "{{cookiecutter.version}}"
-
 # Project Directory
 here = os.path.dirname(os.path.realpath(__file__))
 

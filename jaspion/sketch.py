@@ -48,10 +48,10 @@ class Sketch(MutableMapping):
         """Direct access interface to 'self.handlers'."""
         if isinstance(handler, Callable):
             self.event_handlers[event] = [handler]
-        
+
         elif isinstance(handler, MutableSequence):
             self.event_handlers[event] = handler
-        
+
         else:
             name = type(handler).__name__
             raise TypeError('"%s" not not is valid object' % name)
@@ -118,7 +118,7 @@ class Sketch(MutableMapping):
         """
         self.event_handlers.setdefault(event, []).append(function)
 
-    def handle(self, event: str) -> callable:
+    def handle(self, event: str) -> Callable:
         """Decorator that allows the registration of new handlers.
         The event will be provided for the function in the form
         of a Dict.

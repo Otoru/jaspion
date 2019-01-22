@@ -6,4 +6,4 @@ Version: {{cookiecutter.version}}
 Author: {{cookiecutter.author}}
 E-mail: {{cookiecutter.email}}
 """
-__version__ = {{cookiecutter.project_slug}}
+__version__ = {{cookiecutter.version}}
