@@ -1,11 +1,14 @@
 # To-Do List
 - [X] Create the decorator to handle events.
-- [ ] Create a CLI to run projects.
-- [ ] Write tests.
 - [X] Create filter to request only the marked events.
 - [X] Create Class to 'lazzy append' handlers.
 - [ ] Allow handlers to send commands to freeswitch.
 - [ ] Create a Class Based Handlers.
+
+# Documentations to write
+- [X] Installation Instructions.
+- [X] Get started.
+- [X] Decorators.
 
 ## Suggested Modules
 - Integration with SQLAlchemy
@@ -16,5 +19,4 @@
 
 ## Infinite Tasks
 - Create the Documentation.
-- Write new examples.
 - Correct errors in existing docstrings and documentation.
