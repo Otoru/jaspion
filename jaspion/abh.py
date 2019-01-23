@@ -1,9 +1,10 @@
+from typing import Dict
 from abc import ABC
 from abc import abstractmethod
 
 
 class BaseHandler(ABC):
-    def __init__(self, event: str):
+    def __init__(self, event: Dict):
         self.event = event
         self.setup()
 
