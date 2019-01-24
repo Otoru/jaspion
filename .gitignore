@@ -12,6 +12,7 @@ __pycache__/
 *.so
 .idea
 *.pid
+site/
 
 # Distribution / packaging
 .Python

@@ -37,13 +37,13 @@ setup(
         'examples'
     ]),
     install_requires=[
-        'greenswitch',
-        'click',
+        'greenswitch'
     ],
     extras_require={
         'dev': [
             'ipython',
-            'flake8'
+            'flake8',
+            'mkdocs'
         ],
     },
     zip_safe=False,

@@ -1,4 +1,4 @@
-## Example
+## Examples
 This is a list with example codes:
 
 - [How to monitoring an extension?][1]

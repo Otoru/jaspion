@@ -1,4 +1,4 @@
-## What is Jaspion?
+# Welcome to jaspion Docs
 
 Jaspion is a python library designed to process events received from FreeSwitch via ESL.
 
@@ -9,13 +9,3 @@ FreeSWITCH is a free and open-source application server for real-time communicat
 ## What is ESL?
 
 ESL is a way to communicate with FreeSwitch. See more details [here](https://freeswitch.org/confluence/display/FREESWITCH/Event+Socket+Library).
-
-## Docs
-
-The project documentation is in [jaspion.readthedocs.io](https://jaspion.readthedocs.io/)
-
-## How to contribute?
-
-If you want to contribute to the project, you may be taking a look at the list below. Any help is welcome.
-
-- [To-Do list](./docs/to-do-list.md)
