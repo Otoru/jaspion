@@ -8,7 +8,7 @@ This method is a decorator.
 When added to a function that will be used as a handler for FreeSwitch events, it ensures that this function will only process events that have the entered **key**.
 
 | Argument | Type | Required | Default |
-|:--------:|:----:|:--------:|:-------:|
+|:---------|:-----|:---------|:--------|
 |    key   |  str |   True   |   N/A   |
 
 #### Example
@@ -30,7 +30,7 @@ This method is a decorator.
 When added to a function that will be used as a handler for FreeSwitch events, it ensures that this function will only process events that have the entered **key** and that have the **value** associated with that key.
 
 | Argument | Type | Required | Default |
-|:--------:|:----:|:--------:|:-------:|
+|:---------|:-----|:---------|:--------|
 |    key   |  str |   True   |   N/A   |
 |   value  |  str |   True   |   N/A   |
 

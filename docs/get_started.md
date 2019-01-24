@@ -33,14 +33,16 @@ Let's better understand the code:
  - The function can apply the logic you want to in the package, such as expand, save to a database, or whatever you prefer.
  - Finally, we can call the `run` method so that app starts receiving the events.
 
-## Which events can I work with?
+## Choosing Events
 
 You can work on any event that FreeSwitch generates via ESL. Just be aware of the fact that if the searched event is a **CUSTOM**, you must enter your **subclass** name. The [FreeSwitch documentation][1] has more information about events.
 
-## And now?
+## Installation Instructions
 
-With this you already know what it takes to start venturing into our [documentation][2] or else to understand how our [examples][3] work. It's adventure time!
+You can install the package in two ways:
+```bash
+$ pip install jaspion                           # From pypi
+$ pip install https://github.com/Otoru/jaspion  # From source code
+```
 
 [1]: https://freeswitch.org/confluence/display/FREESWITCH/Event+List
-[2]: https://github.com/Otoru/jaspion/blob/master/README.md
-[3]: https://github.com/Otoru/jaspion/blob/master/docs/examples.md

@@ -4,9 +4,7 @@ site_url: https://jaspion.readthedocs.io/
 repo_url: https://github.com/Otoru/jaspion/
 site_author: Vitor Hugo de Oliveira Vargas
 nav:
-    - Index: index.md
     - Get Started: get_started.md
-    - Installation Instructions: installation_instructions.md
     - Tools: tools.md
     - examples: examples.md
-theme: readthedocs
+theme: mkdocs
