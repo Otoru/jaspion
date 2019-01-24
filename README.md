@@ -18,4 +18,28 @@ The project documentation is in [jaspion.readthedocs.io](https://jaspion.readthe
 
 If you want to contribute to the project, you may be taking a look at the list below. Any help is welcome.
 
-- [To-Do list](./docs/to-do-list.md)
+### To-Do List
+- [X] Create the decorator to handle events.
+- [X] Create filter to request only the marked events.
+- [ ] Allow handlers to send commands to freeswitch.
+- [X] Create a Class Based Handlers.
+- [ ] Create a CLI do create and run projects.
+- [ ] Create tests to package.
+
+### Documentations to write
+- [X] Installation Instructions.
+- [X] Get started.
+- [X] AbstractBaseHandler.
+- [X] Util decorators.
+
+### Suggested Modules
+- Integration with SQLAlchemy
+- Integration with Redis
+- Integration with MongoDB
+- Integration with WebSockets
+- Integration with RabbitMQ
+
+### Infinite Tasks
+- Create the Documentation.
+- Create a new examples.
+- Correct errors in existing docstrings and documentation.
