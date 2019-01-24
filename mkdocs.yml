@@ -1,8 +1,8 @@
 site_name: Jaspion
-theme: readthedocs
 nav:
     - Index: index.md
     - Get Started: get_started.md
     - Installation Instructions: installation_instructions.md
     - Tools: tools.md
     - Examples: examples.md
+theme: readthedocs
