@@ -1,8 +1,11 @@
-site_name: Jaspion
+site_name: Jaspion Docs
 nav:
     - Index: index.md
     - Get Started: get_started.md
     - Installation Instructions: installation_instructions.md
     - Tools: tools.md
-    - Examples: examples.md
+        - Haskey: tools.md#haskey
+        - Filtrate: tools.md#filtrate
+        - AbstractBaseHandler: tools.md#abstractbasehandler
+    - examples: examples.md
 theme: readthedocs
