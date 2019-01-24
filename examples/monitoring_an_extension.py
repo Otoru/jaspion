@@ -28,14 +28,14 @@ def pre_register(event):
 
 
 # Handler to 'register_attempt' event and filter to extension 1000.
-@app.handle('sofia::register_attempt')
+@app.handle('sofia::register')
 @filtrate('from-user', '1000')
-def register_attempt(event):
+def register(event):
     domain = event['from-host']
     username = event['from-user']
     date = event['Event-Date-Local']
 
-    print(f'[{date}] {username}@{domain} - Auth  operation terminated.')
+    print(f'[{date}] {username}@{domain} - Register.')
 
 
 # Handler to 'register_attempt' event and filter to extension 1000.
