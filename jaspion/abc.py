@@ -3,7 +3,7 @@ from abc import ABC
 from abc import abstractmethod
 
 
-class BaseHandler(ABC):
+class AbstractBaseHandler(ABC):
     def __init__(self, event: Dict):
         self.event = event
         self.setup()
