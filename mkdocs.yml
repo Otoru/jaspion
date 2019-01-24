@@ -3,7 +3,7 @@ nav:
     - Index: index.md
     - Get Started: get_started.md
     - Installation Instructions: installation_instructions.md
-    - Tools: tools.md
+    - Tools:
         - Haskey: tools.md#haskey
         - Filtrate: tools.md#filtrate
         - AbstractBaseHandler: tools.md#abstractbasehandler
