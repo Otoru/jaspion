@@ -7,6 +7,6 @@ nav:
     - Index: index.md
     - Get Started: get_started.md
     - Installation Instructions: installation_instructions.md
-    - Tools:tools.md
+    - Tools: tools.md
     - examples: examples.md
 theme: readthedocs
