@@ -16,18 +16,51 @@ freeswitch = {
 app = Jaspion(__name__, **freeswitch)
 
 
-# Handler to 'sofia::register' event and filter to extension 1000.
-@app.handle('sofia::register')
+# Handler to 'pre_register' event and filter to extension 1000.
+@app.handle('sofia::pre_register')
 @filtrate('from-user', '1000')
-def register(event):
+def pre_register(event):
     domain = event['from-host']
     username = event['from-user']
     date = event['Event-Date-Local']
 
-    print(f'[{date}] {username}@{domain} - Registred.')
+    print(f'[{date}] {username}@{domain} - Tried to register.')
 
 
-# Handler to 'sofia::unregister' event and filter to extension 1000.
+# Handler to 'register_attempt' event and filter to extension 1000.
+@app.handle('sofia::register_attempt')
+@filtrate('from-user', '1000')
+def register_attempt(event):
+    domain = event['from-host']
+    username = event['from-user']
+    date = event['Event-Date-Local']
+
+    print(f'[{date}] {username}@{domain} - Auth  operation terminated.')
+
+
+# Handler to 'register_attempt' event and filter to extension 1000.
+@app.handle('sofia::register_attempt')
+@filtrate('from-user', '1000')
+def register_attempt(event):
+    domain = event['from-host']
+    username = event['from-user']
+    date = event['Event-Date-Local']
+
+    print(f'[{date}] {username}@{domain} - Auth operation terminated.')
+
+
+# Handler to 'register_failure' event and filter to extension 1000.
+@app.handle('sofia::register_failure')
+@filtrate('from-user', '1000')
+def register_failure(event):
+    domain = event['from-host']
+    username = event['from-user']
+    date = event['Event-Date-Local']
+
+    print(f'[{date}] {username}@{domain} - Failed to register.')
+
+
+# Handler to 'unregister' event and filter to extension 1000.
 @app.handle('sofia::unregister')
 @filtrate('from-user', '1000')
 def unregister(event):

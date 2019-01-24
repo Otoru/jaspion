@@ -4,6 +4,7 @@
 - [ ] Allow handlers to send commands to freeswitch.
 - [X] Create a Class Based Handlers.
 - [ ] Create a CLI do create and run projects.
+- [ ] Create tests to package.
 
 # Documentations to write
 - [X] Installation Instructions.
