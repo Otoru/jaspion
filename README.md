@@ -14,7 +14,7 @@ ESL is a way to communicate with FreeSwitch. See more details [here](https://fre
 - [Installation Instructions](./docs/installation_instructions.md)
 - [Get Started](./docs/get_started.md)
 - [Examples](./docs/examples.md)
-- [How to use a AbstractBaseHandler?](./docs/how_to_use_the_abstract_base_handler.md)
+- [How to use a AbstractBaseHandler](./docs/how_to_use_the_abstract_base_handler.md)
 - [Package tools](./docs/tools.md)
 
 ## How to contribute?
