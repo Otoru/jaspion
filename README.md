@@ -34,7 +34,6 @@ If you want to contribute to the project, you may be taking a look at the list b
 
 ### Suggested Modules
 - Integration with SQLAlchemy
-- Integration with Redis
 - Integration with MongoDB
 - Integration with WebSockets
 - Integration with RabbitMQ
