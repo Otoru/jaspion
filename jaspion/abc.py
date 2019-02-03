@@ -1,6 +1,6 @@
+from abc import abstractmethod
 from typing import Dict
 from abc import ABC
-from abc import abstractmethod
 
 
 class AbstractBaseHandler(ABC):

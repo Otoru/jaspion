@@ -34,8 +34,8 @@ class Jaspion(Sketch, InboundESL):
             handler(data)
         except:
             name = handler.__name__
-            logging.debug('ESL %s raised exception.' % name)
-            logging.debug(pprint.pformat(data))
+            logging.exception('ESL %s raised exception.' % name)
+            logging.exception(pprint.pformat(data))
 
     def start(self, *args, **kwargs):
         """Method created to be overwritten."""
