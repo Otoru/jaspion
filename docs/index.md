@@ -66,4 +66,4 @@ Do not forget to see our [Contributing Guide][2] and our [Code of Conduct][3] to
 
 [1]: https://freeswitch.org/confluence/display/FREESWITCH/Event+List
 [2]: https://github.com/Otoru/jaspion/blob/master/CONTRIBUTING.md
-[2]: https://github.com/Otoru/jaspion/blob/master/CODE_OF_CONDUCT.md
+[3]: https://github.com/Otoru/jaspion/blob/master/CODE_OF_CONDUCT.md
