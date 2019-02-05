@@ -1,7 +1,6 @@
 # You need install redis
 from redis import Redis
 from jaspion import Jaspion
-from jaspion.utils import filtrate
 
 
 # Freeswitch data to connection
