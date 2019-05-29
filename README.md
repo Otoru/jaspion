@@ -12,7 +12,7 @@ ESL is a way to communicate with FreeSwitch. See more details [here](https://fre
 
 ## Docs
 
-The project documentation is in [jaspion.readthedocs.io](https://jaspion.readthedocs.io/)
+The project documentation is in [here](https://github.com/Otoru/jaspion/wiki)
 
 ## How to contribute?
 
