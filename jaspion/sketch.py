@@ -3,6 +3,7 @@ from collections.abc import MutableSequence
 from collections.abc import Callable
 import functools
 import reprlib
+import typing
 
 
 class Sketch(MutableMapping):
@@ -44,7 +45,7 @@ class Sketch(MutableMapping):
             return self.event_handlers[key]
         raise KeyError(key)
 
-    def __setitem__(self, event: str, handler: Callable):
+    def __setitem__(self, event: str, handler: typing.Callable):
         """Direct access interface to 'self.handlers'."""
         if isinstance(handler, Callable):
             self.event_handlers[event] = [handler]
@@ -105,7 +106,7 @@ class Sketch(MutableMapping):
         """Direct access interface to 'self.handlers'."""
         self.event_handlers.clear()
 
-    def register_handle(self, event: str, function: Callable):
+    def register_handle(self, event: str, function: typing.Callable):
         """Function used to add a function to 'event handlers'
         associated with the event reported.
 
@@ -118,7 +119,7 @@ class Sketch(MutableMapping):
         """
         self.event_handlers.setdefault(event, []).append(function)
 
-    def handle(self, event: str) -> Callable:
+    def handle(self, event: str) -> typing.Callable:
         """Decorator that allows the registration of new handlers.
         The event will be provided for the function in the form
         of a Dict.
@@ -128,7 +129,7 @@ class Sketch(MutableMapping):
         - event: required
             Name of the event to be parsed.
         """
-        def decorator(function: Callable):
+        def decorator(function: typing.Callable):
             self.register_handle(event, function)
 
             @functools.wraps(function)

@@ -1,5 +1,6 @@
 import logging
-import pprint
+import 
+from typing import Callable
 
 from greenswitch import InboundESL
 from greenswitch.esl import ESLEvent
@@ -15,7 +16,7 @@ class Jaspion(Sketch, InboundESL):
         Sketch.__init__(self, __name__)
         InboundESL.__init__(self, host, int(port), password)
 
-    def _safe_exec_handler(self, handler: callable, event: ESLEvent):
+    def _safe_exec_handler(self, handler: Callable, event: ESLEvent):
         """Overridden method to ensure that the event passed to
         handlers is actually a dict instance with information
         already processed.

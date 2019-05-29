@@ -1,4 +1,5 @@
 import functools
+import typing
 
 
 def filtrate(key: str, value: str = None):
@@ -12,7 +13,7 @@ def filtrate(key: str, value: str = None):
     - value: optional
         Value needed in the last key.
     """
-    def decorator(function: callable):
+    def decorator(function: typing.Callable):
         @functools.wraps(function)
         def wrapper(message):
             if isinstance(message, dict):
