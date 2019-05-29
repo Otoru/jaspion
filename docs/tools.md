@@ -2,28 +2,6 @@
 
 Here we will list some methods that may be useful during the development of a Jaspion project.
 
-## Haskey
-
-This method is a decorator.
-When added to a function that will be used as a handler for FreeSwitch events, it ensures that this function will only process events that have the entered **key**.
-
-| Argument | Type | Required | Default |
-|:---------|:-----|:---------|:--------|
-|    key   |  str |   True   |   N/A   |
-
-#### Example
-
-```python
-@app.handle('sofia::register')
-@haskey('from-user')
-def register(event):
-    domain = event['from-host']
-    username = event['from-user']
-    date = event['Event-Date-Local']
-
-    print(f'[{date}] {username}@{domain} - Registred.')
-```
-
 ## Filtrate
 
 This method is a decorator.
@@ -34,7 +12,7 @@ When added to a function that will be used as a handler for FreeSwitch events, i
 |    key   |  str |   True   |   N/A   |
 |   value  |  str |   True   |   N/A   |
 
-#### Example
+#### Example whit key and value
 
 ```python
 @app.handle('sofia::register')
@@ -46,6 +24,19 @@ def register(event):
 
     print(f'[{date}] {username}@{domain} - Registred.')
 
+```
+
+#### Example whit key only
+
+```python
+@app.handle('sofia::register')
+@filtrate('from-user')
+def register(event):
+    domain = event['from-host']
+    username = event['from-user']
+    date = event['Event-Date-Local']
+
+    print(f'[{date}] {username}@{domain} - Registred.')
 ```
 
 ## AbstractBaseHandler
@@ -76,9 +67,9 @@ class SimpleHandler(AbstractBaseHandler):
     def finish(self):
         print('Finishing the processing.')
 
-app = Jaspion(__name__, host='127.0.0.1',
-                        port=8021,
-                        password='ClueCon')
+app = Jaspion(host='127.0.0.1',
+              port=8021,
+              password='ClueCon')
 
 
 app['HEARTBEAT'] = SimpleHandler

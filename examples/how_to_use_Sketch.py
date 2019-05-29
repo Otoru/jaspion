@@ -22,7 +22,7 @@ def heartbeat(event):
 
 
 # Create a Jaspion App
-app = Jaspion(__name__, **freeswitch)
+app = Jaspion(**freeswitch)
 
 # Add new Sketch to App
 app.update(default)

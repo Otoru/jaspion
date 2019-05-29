@@ -8,11 +8,11 @@ from jaspion.sketch import Sketch
 
 
 class Jaspion(Sketch, InboundESL):
-    def __init__(self, name: str, host: str, port: int, password: str):
+    def __init__(self, host: str, port: int, password: str):
         """Method created to perform the call of the two __init __ 's
         present in the SuperClasses.
         """
-        Sketch.__init__(self, name)
+        Sketch.__init__(self, __name__)
         InboundESL.__init__(self, host, int(port), password)
 
     def _safe_exec_handler(self, handler: callable, event: ESLEvent):
@@ -39,7 +39,7 @@ class Jaspion(Sketch, InboundESL):
 
     def start(self, *args, **kwargs):
         """Method created to be overwritten."""
-        ...
+        print('Start listener on: {}:{}...'.format(self.host, self.port))
 
     def run(self):
         """Method called to request the events.

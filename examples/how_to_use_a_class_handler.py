@@ -27,7 +27,7 @@ class SimpleHandler(AbstractBaseHandler):
 
 
 # Create a Jaspion App
-app = Jaspion(__name__, **freeswitch)
+app = Jaspion(**freeswitch)
 
 
 # Add Classhandler to event.

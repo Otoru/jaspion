@@ -10,60 +10,11 @@ FreeSWITCH is a free and open-source application server for real-time communicat
 
 ESL is a way to communicate with FreeSwitch. See more details [here](https://freeswitch.org/confluence/display/FREESWITCH/Event+Socket+Library).
 
-
-# Get Started
-
-Looking forward to getting started? If you already have Jaspion installed, let's see how to make a minimal application.
-
-## Show me the code
-
-Every Jaspion application will start with a simple structure like this:
-
-```python
-from jaspion import Jaspion
-
-app = Jaspion(__name__, host='127.0.0.1', port=8021, password='ClueCon')
-
-@app.handle('HEARTBEAT')
-def heartbeat(event):
-    print(event)
-
-if __name__ == '__main__':
-    app.run()
-```
-
-## Understanding Jaspion
-
-Let's better understand the code:
-
-- To create a jashpion instance, four arguments are required: name, host, port, and password.
-  - name: Positional argument that serves to name the instance in its representation.
-  - host: The FreeSwitch address.
-  - port: The FreeSwitch connection port.
-  - password: Password used for ESL authentication.
- - To add functions as handlers for specific events we must use the decorator 'handle'. it receives a string with the name of the event as an argument.
- - Below the decorator we must have a function that receives a single argument (event) this argument will be a dictionary that will have the same 'key: value' scheme of the selected event.
- - The function can apply the logic you want to in the package, such as expand, save to a database, or whatever you prefer.
- - Finally, we can call the `run` method so that app starts receiving the events.
-
-## Choosing Events
-
-You can work on any event that FreeSwitch generates via ESL. Just be aware of the fact that if the searched event is a **CUSTOM**, you must enter your **subclass** name. The [FreeSwitch documentation][1] has more information about events.
-
-# Installation Instructions
-
-You can install the package in two ways:
-```bash
-$ pip install jaspion                           # From pypi
-$ pip install https://github.com/Otoru/jaspion  # From source code
-```
-
 # How to contribute
 
 If you are thinking of contributing in any way to the project, you will be very welcome.
 Whether it's improving existing documentation, suggesting new features or running existing bugs, it's only by working together that the project will grow.
 Do not forget to see our [Contributing Guide][2] and our [Code of Conduct][3] to always be aligned with the ideas of the project.
 
-[1]: https://freeswitch.org/confluence/display/FREESWITCH/Event+List
 [2]: https://github.com/Otoru/jaspion/blob/master/CONTRIBUTING.md
 [3]: https://github.com/Otoru/jaspion/blob/master/CODE_OF_CONDUCT.md

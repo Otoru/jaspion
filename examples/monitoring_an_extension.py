@@ -13,7 +13,7 @@ freeswitch = {
 }
 
 # Instance of Jaspion
-app = Jaspion(__name__, **freeswitch)
+app = Jaspion(**freeswitch)
 
 
 # Handler to 'pre_register' event and filter to extension 1000.

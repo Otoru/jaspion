@@ -17,7 +17,7 @@ redis = {
 }
 
 # Instance of Jaspion and Redis conn
-app = Jaspion(__name__, **freeswitch)
+app = Jaspion(**freeswitch)
 conn = Redis(**redis)
 
 

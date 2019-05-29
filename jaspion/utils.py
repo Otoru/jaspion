@@ -1,7 +1,7 @@
 import functools
 
 
-def filtrate(key: str, value: str):
+def filtrate(key: str, value: str = None):
     """Method that allows to filter the events according
     to a set 'key', 'value'. No need 'haskey' to work.
 
@@ -9,7 +9,7 @@ def filtrate(key: str, value: str):
     ----------
     - key: required
         Key to be searched in the event.
-    - value: required
+    - value: optional
         Value needed in the last key.
     """
     def decorator(function: callable):
@@ -17,28 +17,10 @@ def filtrate(key: str, value: str):
         def wrapper(message):
             if isinstance(message, dict):
                 if key in message:
+                    if key is None:
+                        return function(message)
                     if message[key] == value:
-                        result = function(message)
-                        return result
-        return wrapper
-    return decorator
+                        return function(message)
 
-
-def haskey(key: str):
-    """Ensures that only events with the entered key will be
-    processed by the function.
-
-    Parameters
-    ----------
-    - key: required
-        Key to be searched in the event.
-    """
-    def decorator(function: callable):
-        @functools.wraps(function)
-        def wrapper(message):
-            if isinstance(message, dict):
-                if key in message:
-                    result = function(message)
-                    return result
         return wrapper
     return decorator
