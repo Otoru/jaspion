@@ -42,7 +42,7 @@ setup(
     extras_require={
         'dev': [
             'ipython',
-            'mkdocs'
+            'pylint'
         ],
     },
     zip_safe=False,
