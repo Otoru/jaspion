@@ -1,6 +1,6 @@
-import logging
-import 
 from typing import Callable
+import logging 
+import pprint
 
 from greenswitch import InboundESL
 from greenswitch.esl import ESLEvent
@@ -40,7 +40,7 @@ class Jaspion(Sketch, InboundESL):
 
     def start(self, *args, **kwargs):
         """Method created to be overwritten."""
-        print('Start listener on: {}:{}...'.format(self.host, self.port))
+        ...
 
     def run(self):
         """Method called to request the events.

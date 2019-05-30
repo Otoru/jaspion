@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9bee302d15f555e7571e7c71accce597837eac0401e81f8e9b78d7728b650f52"
+            "sha256": "a5d7cea81fc8e40d73cd42526a1a3df430043fb8d35d200a5134106c748574c8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -75,6 +75,10 @@
             ],
             "index": "pypi",
             "version": "==0.0.9"
+        },
+        "jaspion": {
+            "editable": true,
+            "path": "."
         },
         "six": {
             "hashes": [

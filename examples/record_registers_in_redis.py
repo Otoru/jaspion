@@ -1,5 +1,5 @@
 # You need install redis
-from redis import Redis
+from redis import Redis # pylint: disable=import-error
 from jaspion import Jaspion
 
 
