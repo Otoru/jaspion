@@ -38,6 +38,17 @@ class Jaspion(Sketch, InboundESL):
             logging.exception('ESL %s raised exception.' % name)
             logging.exception(pprint.pformat(data))
 
+    def process_events(self):
+        """Overridden method to create the filters in the ESL 
+        before starting the processing of events.
+        """
+        for event in self.event_handlers.keys():
+            if event.isupper():
+                self.send('filter Event-Name {}'.format(event))
+            else:
+                self.send('filter plain CUSTOM {}'.format(event))
+        super().process_events()
+
     def start(self, *args, **kwargs):
         """Method created to be overwritten."""
         ...
