@@ -25,6 +25,7 @@ setup(
         'Intended Audience :: Telecommunications Industry',
         'Natural Language :: Portuguese (Brazilian)',
         'Operating System :: Unix',
+        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Topic :: Communications :: Telephony',
         'Topic :: Software Development',

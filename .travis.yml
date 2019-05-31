@@ -17,5 +17,6 @@ deploy:
   provider: pypi
   username: $username
   password: $password
+  skip_existing: true
   on:
     branch: master
