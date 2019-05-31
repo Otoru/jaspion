@@ -19,7 +19,7 @@ setup(
     author='Vitor Hugo de Oliveira Vargas',
     author_email='vitor.hugo@sippulse.com',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Console',
         'Intended Audience :: Information Technology',
         'Intended Audience :: Telecommunications Industry',
@@ -31,9 +31,7 @@ setup(
     ],
     keywords='ESL, FreeSwitch',
     packages=find_packages(exclude=[
-        'contrib',
         'docs',
-        'tests',
         'examples'
     ]),
     install_requires=[

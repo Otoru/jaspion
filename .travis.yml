@@ -9,4 +9,4 @@ install:
   - pipenv install --dev
   - python setup.py sdist bdist_wheel
 
-script: "twine upload -u $username -p $password dist/*"
+script: "twine upload --skip-existing -u $username -p $password dist/*"
