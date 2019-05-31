@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Otoru/jaspion.svg?branch=master)](https://travis-ci.com/Otoru/jaspion)
+
 ## What is Jaspion?
 
 Jaspion is a python library designed to process events received from FreeSwitch via ESL.
