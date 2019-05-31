@@ -1,11 +1,10 @@
 [![Build Status](https://travis-ci.com/Otoru/jaspion.svg?branch=master)](https://travis-ci.com/Otoru/jaspion)
-![GitHub](https://img.shields.io/github/license/otoru/jaspion.svg)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/jaspion.svg)
-![PyPI - Implementation](https://img.shields.io/pypi/implementation/jaspion.svg)
-![PyPI - Status](https://img.shields.io/pypi/status/jaspion.svg)
-![PyPI](https://img.shields.io/pypi/v/jaspion.svg)
-![GitHub repo size](https://img.shields.io/github/repo-size/otoru/jaspion.svg)
-![GitHub top language](https://img.shields.io/github/languages/top/otoru/jaspion.svg)
+[![GitHub](https://img.shields.io/github/license/otoru/jaspion.svg)](https://github.com/Otoru/jaspion/blob/master/LICENSE)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/jaspion.svg)](https://docs.python.org/3/whatsnew/3.7.html)
+[![PyPI - Implementation](https://img.shields.io/pypi/implementation/jaspion.svg)](https://github.com/python/cpython)
+[![PyPI - Status](https://img.shields.io/pypi/status/jaspion.svg)](https://pypi.org/project/Jaspion/)
+[![PyPI](https://img.shields.io/pypi/v/jaspion.svg)](https://pypi.org/project/Jaspion/)
+[![GitHub top language](https://img.shields.io/github/languages/top/otoru/jaspion.svg)](https://www.python.org/)
 
 ## What is Jaspion?
 
