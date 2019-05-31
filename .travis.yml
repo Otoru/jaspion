@@ -15,5 +15,3 @@ script:
 
 after_success:
   - pipenv run twine upload --skip-existing --user $username --pasword $password dist/*
-  on:
-    branch: master
