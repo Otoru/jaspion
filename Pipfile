@@ -5,9 +5,9 @@ verify_ssl = true
 
 [dev-packages]
 ipython = "*"
-mkdocs = "*"
 pylint = "*"
 twine = "*"
+travis = "*"
 
 [packages]
 greenswitch = "*"
