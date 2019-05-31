@@ -11,12 +11,9 @@ install:
 
 script: 
   - pipenv run flake8 .
-  - python setup.py sdist bdist_wheel
+  - pipenv run python setup.py sdist bdist_wheel
 
-deploy:
-  provider: pypi
-  username: $username
-  password: $password
-  skip_existing: true
+after_success:
+  - pipenv run twine upload --skip-existing --user $username --pasword $password dist/*
   on:
     branch: master
