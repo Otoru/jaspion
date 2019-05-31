@@ -71,6 +71,17 @@ def unregister(event):
     print(f'[{date}] {username}@{domain} - Unregistred.')
 
 
+# Handler to 'expire' event and filter to extension 1000.
+@app.handle('sofia::expire')
+@filtrate('from-user', '1000')
+def unregister(event):
+    domain = event['from-host']
+    username = event['from-user']
+    date = event['Event-Date-Local']
+
+    print(f'[{date}] {username}@{domain} - Unregistred.')
+
+
 if __name__ == "__main__":
     # Start Jaspion
     app.run()
