@@ -1,5 +1,11 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.com/Otoru/jaspion.svg?branch=master)](https://travis-ci.com/Otoru/jaspion)
+![GitHub](https://img.shields.io/github/license/otoru/jaspion.svg)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/jaspion.svg)
+![PyPI - Implementation](https://img.shields.io/pypi/implementation/jaspion.svg)
+![PyPI - Status](https://img.shields.io/pypi/status/jaspion.svg)
+![PyPI](https://img.shields.io/pypi/v/jaspion.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/otoru/jaspion.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/otoru/jaspion.svg)
 
 ## What is Jaspion?
 
@@ -19,4 +25,9 @@ The project documentation is in [here](https://github.com/Otoru/jaspion/wiki)
 
 ## How to contribute?
 
-If you want to contribute to the project, you may be taking a look at the list below. Any help is welcome.
+If you are thinking of contributing in any way to the project, you will be very welcome.
+Whether it's improving existing documentation, suggesting new features or running existing bugs, it's only by working together that the project will grow.
+Do not forget to see our [Contributing Guide][2] and our [Code of Conduct][3] to always be aligned with the ideas of the project.
+
+[2]: https://github.com/Otoru/jaspion/blob/master/CONTRIBUTING.md
+[3]: https://github.com/Otoru/jaspion/blob/master/CODE_OF_CONDUCT.md
