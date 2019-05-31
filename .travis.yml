@@ -14,6 +14,6 @@ script:
   - pipenv run python setup.py sdist bdist_wheel
 
 after_success:
-  - pipenv run twine upload --skip-existing --user $username --pasword $password dist/*
+  - pipenv run twine upload --skip-existing --user $username --password $password dist/*
   on:
     branch: master
