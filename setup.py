@@ -9,7 +9,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='Jaspion',
-    version='0.3.4.3',
+    version='0.3.4.4',
     description='FreeSwitch Event Handler based in Flask.',
     include_package_data=True,
     license='MIT',
