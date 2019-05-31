@@ -60,18 +60,8 @@ def register_failure(event):
     print(f'[{date}] {username}@{domain} - Failed to register.')
 
 
-# Handler to 'unregister' event and filter to extension 1000.
+# Handler to 'unregister' and 'expire' event and filter to extension 1000.
 @app.handle('sofia::unregister')
-@filtrate('from-user', '1000')
-def unregister(event):
-    domain = event['from-host']
-    username = event['from-user']
-    date = event['Event-Date-Local']
-
-    print(f'[{date}] {username}@{domain} - Unregistred.')
-
-
-# Handler to 'expire' event and filter to extension 1000.
 @app.handle('sofia::expire')
 @filtrate('from-user', '1000')
 def unregister(event):

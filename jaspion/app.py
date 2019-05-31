@@ -1,5 +1,5 @@
 from typing import Callable
-import logging 
+import logging
 import pprint
 
 from greenswitch import InboundESL
@@ -33,13 +33,14 @@ class Jaspion(Sketch, InboundESL):
         try:
             data = event.headers
             handler(data)
-        except:
+        except Exception as exc:
             name = handler.__name__
             logging.exception('ESL %s raised exception.' % name)
             logging.exception(pprint.pformat(data))
+            logging.exception(exc)
 
     def process_events(self):
-        """Overridden method to create the filters in the ESL 
+        """Overridden method to create the filters in the ESL
         before starting the processing of events.
         """
         for event in self.event_handlers.keys():

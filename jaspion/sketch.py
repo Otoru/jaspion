@@ -81,6 +81,17 @@ class Sketch(MutableMapping):
         name = name = type(self).__name__
         raise KeyError('popitem(): %s is empty' % name)
 
+    def pop(self, key: str, default: typing.Any = None):
+        """Direct access interface to 'self.handlers'."""
+        if self.event_handlers:
+            return self.event_handlers.pop(key, default)
+        name = name = type(self).__name__
+        raise KeyError('popitem(): %s is empty' % name)
+
+    def setdefault(self, key: str, default: typing.Any):
+        """Direct access interface to 'self.handlers'."""
+        return self.event_handlers.setdefault(key, default)
+
     def update(self, other: object):
         """Method to be used to record Sketch's instance of
         Jaspion or even concatenated Sketch's.
@@ -88,7 +99,8 @@ class Sketch(MutableMapping):
         Parameters
         ----------
         - other: required
-            An Sketch instance.
+            An Sketch instance or another mutable mapping
+            with callable values.
 
         Raises
         ------
@@ -99,8 +111,8 @@ class Sketch(MutableMapping):
             name = type(other).__name__
             raise TypeError('%s not is valid object.' % name)
 
-        for event, list in other.event_handlers.items():
-            self.event_handlers.setdefault(event, []).extend(list)
+        for event, handlers in other.event_handlers.items():
+            self.event_handlers.setdefault(event, []).extend(handlers)
 
     def clear(self):
         """Direct access interface to 'self.handlers'."""

@@ -6,9 +6,9 @@ from abc import ABC
 class AbstractBaseHandler(ABC):
     def __init__(self, event: Dict):
         self.event = event
-        self.setup()
 
         try:
+            self.setup()
             self.handle()
 
         finally:
@@ -22,11 +22,9 @@ class AbstractBaseHandler(ABC):
     def handle(self):
         """Method called to process the event. Must be overwritten."""
 
-
     def finish(self):
         """Method to terminate processing. Can be overwritten."""
         ...
-
 
     def __repr__(self):
         """Generates representation for debug."""

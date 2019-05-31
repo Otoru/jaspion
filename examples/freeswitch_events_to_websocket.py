@@ -3,8 +3,8 @@ from urllib import parse
 
 from jaspion import Jaspion
 
-from gevent import pywsgi # pylint: disable=import-error
-from geventwebsocket.handler import WebSocketHandler # pylint: disable=import-error
+from gevent import pywsgi  # pylint: disable=import-error
+from geventwebsocket import handler  # pylint: disable=import-error
 
 
 def websocket(environ, response):
@@ -28,7 +28,9 @@ def websocket(environ, response):
     app.run()
 
 
-server = pywsgi.WSGIServer(('', 8000), websocket, handler_class=WebSocketHandler)
+server = pywsgi.WSGIServer(
+    ('', 8000), websocket, handler_class=handler.WebSocketHandler
+)
 
 
 if __name__ == '__main__':

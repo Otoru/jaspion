@@ -3,10 +3,19 @@ language: python
 
 python:
   - '3.7'
+  - '3.6'
 
 install:
   - python -m pip install pipenv
   - pipenv install --dev
+
+script: 
+  - pipenv run flake8 .
   - python setup.py sdist bdist_wheel
 
-script: "twine upload --skip-existing -u $username -p $password dist/*"
+deploy:
+  provider: pypi
+  username: $username
+  password: $password
+  on:
+    branch: master

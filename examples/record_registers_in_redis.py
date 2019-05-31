@@ -1,5 +1,4 @@
-# You need install redis
-from redis import Redis # pylint: disable=import-error
+from redis import Redis  # pylint: disable=import-error
 from jaspion import Jaspion
 
 
@@ -20,7 +19,6 @@ redis = {
 app = Jaspion(**freeswitch)
 conn = Redis(**redis)
 
-
 # Save all register in redis with expires of sip message.
 @app.handle('sofia::register')
 def register(event):
@@ -28,7 +26,6 @@ def register(event):
     ttl = int(event['expires'])
     conn.hmset(key, event)
     conn.expire(key, ttl)
-
 
 # Exclude redis register if unregister is recived
 @app.handle('sofia::unregister')

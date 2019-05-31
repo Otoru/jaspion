@@ -4,7 +4,7 @@ import typing
 
 def filtrate(key: str, value: str = None):
     """Method that allows to filter the events according
-    to a set 'key', 'value'. No need 'haskey' to work.
+    to a set 'key', 'value'.
 
     Parameters
     ----------
