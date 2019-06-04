@@ -5,17 +5,15 @@ python:
   - '3.7'
   - '3.6'
 
-branches:
-  only:
-  - master
-
 install:
   - python -m pip install pipenv
   - pipenv install --dev
 
 script: 
   - pipenv run flake8 .
-  - pipenv run python setup.py sdist bdist_wheel
 
-after_success:
-  - pipenv run twine upload --skip-existing --user $username --password $password dist/*
+deploy:
+  provider: pypi
+  user: $username
+  password: $password
+  skip_existing: true
