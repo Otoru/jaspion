@@ -1,4 +1,5 @@
 import os
+import sys
 import importlib
 
 import click
@@ -34,10 +35,16 @@ def runserver(host, port, password):
     """Connect in freeswitch and start a listner."""
     try:
         module = os.environ.get('JASPION_APP', None)
+        sketch = 'app'
+
+        if ':' in module:
+            module, sketch = module.split(':', 1)
 
         if module:
             click.echo('Try to connect in esl://{}:{}'.format(host, port))
-            listner = importlib.import_module(module)
+            mod = importlib.import_module(module)
+            listner = getattr(mod, sketch)
+
             click.echo('Listner: {}'.format(listner))
             app = Jaspion(host, port, password)
             app.update(listner)
@@ -49,10 +56,10 @@ def runserver(host, port, password):
     except ImportError:
         click.echo(click.style('Failed to load listener.', fg='red'))
 
-    except KeyError:
+    except (KeyError, TypeError):
         click.echo(click.style('Invalid listener configured.', fg='red'))
 
-    except NotConnectedError:
+    except (NotConnectedError, ConnectionRefusedError):
         click.echo(click.style('Failed to connect with freeswitch.', fg='red'))
 
     except KeyboardInterrupt:
