@@ -24,7 +24,7 @@ def pre_register(event):
     username = event['from-user']
     date = event['Event-Date-Local']
 
-    print(f'[{date}] {username}@{domain} - Tried to register.')
+    print('[{}] {}@{} - Tried to register.'.format(date, username, domain))
 
 
 # Handler to 'register_attempt' event and filter to extension 1000.
@@ -35,7 +35,7 @@ def register(event):
     username = event['from-user']
     date = event['Event-Date-Local']
 
-    print(f'[{date}] {username}@{domain} - Register.')
+    print('[{}] {}@{} - Register.'.format(date, username, domain))
 
 
 # Handler to 'register_attempt' event and filter to extension 1000.
@@ -46,7 +46,7 @@ def register_attempt(event):
     username = event['from-user']
     date = event['Event-Date-Local']
 
-    print(f'[{date}] {username}@{domain} - Auth operation terminated.')
+    print('[{}] {}@{} - Operation terminated.'.format(date, username, domain))
 
 
 # Handler to 'register_failure' event and filter to extension 1000.
@@ -57,7 +57,7 @@ def register_failure(event):
     username = event['from-user']
     date = event['Event-Date-Local']
 
-    print(f'[{date}] {username}@{domain} - Failed to register.')
+    print('[{}] {}@{} - Failed to register.'.format(date, username, domain))
 
 
 # Handler to 'unregister' and 'expire' event and filter to extension 1000.
@@ -69,7 +69,7 @@ def unregister(event):
     username = event['from-user']
     date = event['Event-Date-Local']
 
-    print(f'[{date}] {username}@{domain} - Unregistred.')
+    print('[{}] {}@{} - Unregistred.'.format(date, username, domain))
 
 
 if __name__ == "__main__":
