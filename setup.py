@@ -46,6 +46,11 @@ setup(
             'pylint'
         ],
     },
+    entry_points={
+        'console_scripts': [
+            'jaspion=jaspion.cli:main'
+        ]
+    },
     zip_safe=False,
     project_urls={
         'Bug Reports': 'https://github.com/Otoru/Jaspion/issues',

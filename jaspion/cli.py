@@ -2,34 +2,59 @@ import os
 import importlib
 
 import click
+from greenswitch.esl import NotConnectedError
 
 from jaspion import Jaspion
 
 
 @click.group()
-def cli():
+def main():
     """Jaspion CLI to manipulate and execute projects."""
     ...
 
 
-@cli.command()
-@click.option('--host', default='127.0.0.1', help='Address of FreeSwitch.')
-@click.option('--port', default=8021, type=int, help='Port to ESL connection.')
-@click.option('--password', default='ClueCon', help='Password ESL connect.')
+@main.command()
+@click.option('--host',
+              envvar='FSHOST',
+              show_default=True,
+              default='127.0.0.1',
+              help='Address of FreeSwitch.')
+@click.option('--port',
+              type=int,
+              default=8021,
+              envvar='FSPORT',
+              show_default=True,
+              help='Port to ESL connect.')
+@click.option('--password',
+              default='ClueCon',
+              show_default=True,
+              envvar='FSPASSWD',
+              help='Password to ESL connect.')
 def runserver(host, port, password):
     """Connect in freeswitch and start a listner."""
     try:
-        click.echo('Try to connect in esl://{}:{}'.format(host, port))
-        module = os.environ['JASPION_APP']
-        listner = importlib.import_module(module)
-        click.echo('Listner: {}'.format(listner))
-        app = Jaspion(host, port, password)
-        app.update(listner)
-        app.run()
+        module = os.environ.get('JASPION_APP', None)
+
+        if module:
+            click.echo('Try to connect in esl://{}:{}'.format(host, port))
+            listner = importlib.import_module(module)
+            click.echo('Listner: {}'.format(listner))
+            app = Jaspion(host, port, password)
+            app.update(listner)
+            app.run()
+
+        else:
+            click.echo('No application configured.')
+
+    except ImportError:
+        click.echo(click.style('Failed to load listener.', fg='red'))
+
+    except KeyError:
+        click.echo(click.style('Invalid listener configured.', fg='red'))
+
+    except NotConnectedError:
+        click.echo(click.style('Failed to connect with freeswitch.', fg='red'))
 
     except KeyboardInterrupt:
         click.echo('Stoping...')
         app.stop()
-
-    except ImportError:
-        click.echo(click.style('Failed to load listener.', fg='red'))
