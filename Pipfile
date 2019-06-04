@@ -13,6 +13,7 @@ flake8 = "*"
 [packages]
 greenswitch = "*"
 jaspion = {editable = true,path = "."}
+click = "*"
 
 [requires]
 python_version = "3.7"
