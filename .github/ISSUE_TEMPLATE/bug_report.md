@@ -26,8 +26,8 @@ print('hello world')
 A clear and concise description of what you expected to happen.
 
 **Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Python Version [e.g. 3.7]
+ - OS: \[e.g. iOS]
+ - Python Version \[e.g. 3.7]
 
 **Additional context and code**
 Add any other context about the problem here.
