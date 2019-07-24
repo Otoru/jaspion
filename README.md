@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c0fd08c87d2483e9944b0b62fd6ea78)](https://app.codacy.com/app/Otoru/jaspion?utm_source=github.com&utm_medium=referral&utm_content=Otoru/jaspion&utm_campaign=Badge_Grade_Settings)
 [![Build Status](https://travis-ci.com/Otoru/jaspion.svg?branch=master)](https://travis-ci.com/Otoru/jaspion)
 [![GitHub](https://img.shields.io/github/license/otoru/jaspion.svg)](https://github.com/Otoru/jaspion/blob/master/LICENSE)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/jaspion.svg)](https://docs.python.org/3/whatsnew/3.7.html)
