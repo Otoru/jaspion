@@ -88,7 +88,7 @@ class Sketch(MutableMapping):
         name = type(self).__name__
         raise KeyError('popitem(): %s is empty' % name)
 
-    def setdefault(self, key: str, default: typing.Any):
+    def setdefault(self, key: str, default: typing.Any = None):
         """Direct access interface to 'self.handlers'."""
         return self.event_handlers.setdefault(key, default)
 
