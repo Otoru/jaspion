@@ -5,7 +5,6 @@
 [![PyPI - Status](https://img.shields.io/pypi/status/jaspion.svg)](https://pypi.org/project/Jaspion/)
 [![PyPI](https://img.shields.io/pypi/v/jaspion.svg)](https://pypi.org/project/Jaspion/)
 [![GitHub top language](https://img.shields.io/github/languages/top/otoru/jaspion.svg)](https://www.python.org/)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c9a6a1459e8f4f8699e3896ac5601647)](https://www.codacy.com/app/Otoru/jaspion?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Otoru/jaspion&amp;utm_campaign=Badge_Grade)
 
 ## What is Jaspion?
 
