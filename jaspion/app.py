@@ -32,10 +32,17 @@ class Jaspion(Sketch, InboundESL):
         """
         try:
             data = event.headers
-            handler(data)
+            handler, client = handler
+
+            if client:
+                handler(self, data)
+
+            else:
+                handler(data)
+
         except Exception as exc:
             name = handler.__name__
-            logging.exception('ESL %s raised exception.' % name)
+            logging.exception("ESL %s raised exception." % name)
             logging.exception(pprint.pformat(data))
             logging.exception(exc)
 
@@ -45,9 +52,9 @@ class Jaspion(Sketch, InboundESL):
         """
         for event in self.event_handlers.keys():
             if event.isupper():
-                self.send('filter Event-Name {}'.format(event))
+                self.send("filter Event-Name {}".format(event))
             else:
-                self.send('filter Event-Subclass {}'.format(event))
+                self.send("filter Event-Subclass {}".format(event))
         super().process_events()
 
     def start(self, *args, **kwargs):
@@ -65,5 +72,5 @@ class Jaspion(Sketch, InboundESL):
         """
         self.start()
         self.connect()
-        self.send('events plain ALL')
+        self.send("events plain ALL")
         self.process_events()

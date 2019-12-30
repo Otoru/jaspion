@@ -9,6 +9,7 @@ pylint = "*"
 twine = "*"
 travis = "*"
 flake8 = "*"
+black = "*"
 
 [packages]
 greenswitch = "*"
@@ -16,4 +17,7 @@ jaspion = {editable = true,path = "."}
 click = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true

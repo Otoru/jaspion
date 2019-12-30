@@ -79,14 +79,14 @@ class Sketch(MutableMapping):
         if self.event_handlers:
             return self.event_handlers.popitem()
         name = type(self).__name__
-        raise KeyError('popitem(): %s is empty' % name)
+        raise KeyError("popitem(): %s is empty" % name)
 
     def pop(self, key: str, default: typing.Any = None):
         """Direct access interface to 'self.handlers'."""
         if self.event_handlers:
             return self.event_handlers.pop(key, default)
         name = type(self).__name__
-        raise KeyError('popitem(): %s is empty' % name)
+        raise KeyError("popitem(): %s is empty" % name)
 
     def setdefault(self, key: str, default: typing.Any = None):
         """Direct access interface to 'self.handlers'."""
@@ -109,7 +109,7 @@ class Sketch(MutableMapping):
         """
         if not isinstance(other, Sketch):
             name = type(other).__name__
-            raise TypeError('%s not is valid object.' % name)
+            raise TypeError("%s not is valid object." % name)
 
         for event, handlers in other.event_handlers.items():
             self.event_handlers.setdefault(event, []).extend(handlers)
@@ -118,7 +118,9 @@ class Sketch(MutableMapping):
         """Direct access interface to 'self.handlers'."""
         self.event_handlers.clear()
 
-    def register_handle(self, event: str, function: typing.Callable):
+    def register_handle(
+        self, event: str, function: typing.Callable, client: bool = False
+    ):
         """Function used to add a function to 'event handlers'
         associated with the event reported.
 
@@ -128,10 +130,14 @@ class Sketch(MutableMapping):
             Name of the event to be parsed.
         - function: required
             Function that will process the event.
+        - client: not required
+            Indicates whether or not the function expects to receive a
+            client instance as a parameter. Useful for making reactive
+            applications.
         """
-        self.event_handlers.setdefault(event, []).append(function)
+        self.event_handlers.setdefault(event, []).append((function, client))
 
-    def handle(self, event: str) -> typing.Callable:
+    def handle(self, event: str, client: bool = False) -> typing.Callable:
         """Decorator that allows the registration of new handlers.
         The event will be provided for the function in the form
         of a Dict.
@@ -140,15 +146,22 @@ class Sketch(MutableMapping):
         ----------
         - event: required
             Name of the event to be parsed.
+        - client: not required
+            Indicates whether or not the function expects to receive a
+            client instance as a parameter. Useful for making reactive
+            applications.
         """
+
         def decorator(function: typing.Callable):
-            self.register_handle(event, function)
+            self.register_handle(event, function, client)
 
             @functools.wraps(function)
             def wrapper(*args, **kwargs):
                 result = function(*args, **kwargs)
                 return result
+
             return wrapper
+
         return decorator
 
     def __repr__(self):
@@ -157,10 +170,10 @@ class Sketch(MutableMapping):
         """
         name = self.__name__
         clss = type(self).__name__
-        events = '[]'
+        events = "[]"
         if self.event_handlers:
             repre = reprlib.repr(self.event_handlers.keys())
-            key = (repre.find('[')+1)
-            events = repre[key: -2]
+            key = repre.find("[") + 1
+            events = repre[key:-2]
 
-        return '%s(name=%s, events=%s)' % (clss, name, events)
+        return "%s(name=%s, events=%s)" % (clss, name, events)
