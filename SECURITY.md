@@ -4,9 +4,10 @@ At first, it is necessary to make it very clear where our library is supported
 
 | Python Version | Supported          |
 | -------------- | ------------------ |
+| 3.8.x          | :white_check_mark: |
 | 3.7.x          | :white_check_mark: |
 | 3.6.x          | :white_check_mark: |
-| 3.5.x          | :white_check_mark: |
+| 3.5.x          | :warning:          |
 | 3.4.x          | :warning:          |
 | 3.3.x          | :warning:          |
 | 3.2.x          | :warning:          |
