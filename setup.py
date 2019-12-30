@@ -37,7 +37,7 @@ setup(
     keywords="ESL, FreeSwitch",
     packages=find_packages(exclude=["docs", "examples"]),
     install_requires=["greenswitch", "click"],
-    extras_require={"dev": ["ipython", "pylint"],},
+    extras_require={"dev": ["ipython", "pylint"]},
     entry_points={"console_scripts": ["jaspion=jaspion.cli:main"]},
     zip_safe=False,
     project_urls={
