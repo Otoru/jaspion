@@ -3,21 +3,17 @@ from jaspion.sketch import Sketch
 
 
 # Freeswitch data to connection
-freeswitch = {
-    'host': '127.0.0.1',
-    'password': 'ClueCon',
-    'port': 8021
-}
+freeswitch = {"host": "127.0.0.1", "password": "ClueCon", "port": 8021}
 
 # Create a Sketch instance
-default = Sketch('heartbeat')
+default = Sketch("heartbeat")
 
 
 # Add a handler to Sketch
-@default.handle('HEARTBEAT')
+@default.handle("HEARTBEAT")
 def heartbeat(event):
-    server = event['FreeSWITCH-Hostname']
-    now = event['Event-Date-Local']
+    server = event["FreeSWITCH-Hostname"]
+    now = event["Event-Date-Local"]
     print('[%s] Recived a "heartbeat" from %s' % (now, server))
 
 

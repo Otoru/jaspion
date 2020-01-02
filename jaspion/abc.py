@@ -30,9 +30,9 @@ class AbstractBaseHandler(ABC):
         """Generates representation for debug."""
         name = type(self).__name__
 
-        if self.event['Event-Name'] == 'CUSTOM':
-            event = self.event['Event-Subclass']
+        if self.event["Event-Name"] == "CUSTOM":
+            event = self.event["Event-Subclass"]
         else:
-            event = self.event['Event-Name']
+            event = self.event["Event-Name"]
 
-        return '%s(%s)' % (name, event)
+        return "%s(%s)" % (name, event)

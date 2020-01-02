@@ -32,19 +32,33 @@ class Jaspion(Sketch, InboundESL):
         """
         try:
             data = event.headers
-            handler, client = handler
+            worker, client = handler
 
             if client:
-                handler(self, data)
+                worker(self, data)
 
             else:
-                handler(data)
+                worker(data)
 
         except Exception as exc:
             name = handler.__name__
             logging.exception("ESL %s raised exception." % name)
             logging.exception(pprint.pformat(data))
             logging.exception(exc)
+
+    def command(self, command: str, background: bool = False):
+        """Send command to freeswitch using api or bgapi.
+
+        Parameters
+        ----------
+        - command: required
+            Command to be forwarded to freeswitch.
+        - background: not required
+            Defines whether the freeswitch should run the
+            background command or not.
+        """
+        preffix = "bgapi" if background else "api"
+        return super().send(f"{preffix} {command}")
 
     def process_events(self):
         """Overridden method to create the filters in the ESL
