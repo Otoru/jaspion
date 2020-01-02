@@ -58,7 +58,9 @@ class Jaspion(Sketch, InboundESL):
             background command or not.
         """
         preffix = "bgapi" if background else "api"
-        return super().send(f"{preffix} {command}")
+        result = super().send(f"{preffix} {command}").data
+
+        return result.split(": ", 1)[-1] if background else result
 
     def process_events(self):
         """Overridden method to create the filters in the ESL
