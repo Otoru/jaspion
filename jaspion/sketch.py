@@ -1,5 +1,5 @@
-from collections.abc import MutableMapping
 from collections.abc import MutableSequence
+from collections.abc import MutableMapping
 from collections.abc import Callable
 import functools
 import reprlib

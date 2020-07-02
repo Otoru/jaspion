@@ -1,10 +1,11 @@
 import functools
 import typing
+import re
 
 
-def filtrate(key: str, value: str = None):
-    """Method that allows to filter the events according
-    to a set 'key', 'value'.
+def filtrate(key: str, value: str = None, regex: bool = False):
+    """
+    Method that allows to filter the events accordingto a set 'key', 'value'.
 
     Parameters
     ----------
@@ -12,6 +13,8 @@ def filtrate(key: str, value: str = None):
         Key to be searched in the event.
     - value: optional
         Value needed in the last key.
+    - regex: optional
+        Tells whether 'value' is a regular expression.
     """
 
     def decorator(function: typing.Callable):
@@ -19,9 +22,12 @@ def filtrate(key: str, value: str = None):
         def wrapper(message):
             if isinstance(message, dict):
                 if key in message:
-                    if key is None:
+                    content = message[key]
+                    if value is None:
                         return function(message)
-                    if message[key] == value:
+                    if not regex and content == value:
+                        return function(message)
+                    if regex and re.match(value, content):
                         return function(message)
 
         return wrapper
