@@ -10,6 +10,7 @@ twine = "*"
 travis = "*"
 flake8 = "*"
 black = "*"
+pytest = "*"
 
 [packages]
 greenswitch = "*"

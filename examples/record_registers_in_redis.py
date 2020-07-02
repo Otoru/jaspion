@@ -12,6 +12,7 @@ redis = {"host": "127.0.0.1", "port": 6379}
 app = Jaspion(**freeswitch)
 conn = Redis(**redis)
 
+
 # Save all register in redis with expires of sip message.
 @app.handle("sofia::register")
 def register(event):
