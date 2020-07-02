@@ -48,10 +48,16 @@ def runserver(host, port, password):
         if module:
             click.echo("Try to connect in esl://{}:{}".format(host, port))
             mod = importlib.import_module(module)
-            listner = getattr(mod, sketch)
+            result = getattr(mod, sketch)
 
-            click.echo("Listner: {}".format(listner))
+            click.echo("Listner: {}".format(result))
             app = Jaspion(host, port, password)
+
+            if callable(result):
+                listner = result()
+            else:
+                listner = result
+
             app.update(listner)
             app.run()
 
