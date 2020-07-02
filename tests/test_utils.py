@@ -13,21 +13,25 @@ class Callback:
     def __call__(self, *args, **kwargs):
         self.control = True
 
+
 def test_filtrate_is_a_callable():
     """Verify if 'filtrate' is a callable."""
     assert callable(filtrate)
+
 
 def test_filtrate_require_a_single_argument():
     """Verify if 'filtrate' is a callable."""
     msg = "filtrate() missing 1 required positional argument: 'key'"
     with pytest.raises(TypeError) as exc:
-        filtrate() # pylint: disable=no-value-for-parameter
+        filtrate()  # pylint: disable=no-value-for-parameter
         assert msg in str(exc)
+
 
 def test_filtrate_return_a_callable():
     """Ensures that the filtrate returns a callable when invoked correctly."""
     result = filtrate('key')
     assert callable(result)
+
 
 tests = [
     {'decorator': ['key'], 'response': True, 'event': {'key': 'value'}},
@@ -67,6 +71,7 @@ tests = [
         }
     }
 ]
+
 
 @pytest.mark.parametrize('content', tests)
 def test_decorator_behavior(content):
