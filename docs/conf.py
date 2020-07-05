@@ -3,10 +3,13 @@ copyright = '2020, Vitor Hugo de O. Vargas'
 author = 'Vitor Hugo de O. Vargas'
 
 extensions = [
+    'sphinx.ext.githubpages',
     'sphinx_rtd_theme'
 ]
 
 templates_path = ['_templates']
+
+source_suffix = '.rst'
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
