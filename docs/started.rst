@@ -33,6 +33,7 @@ Let's better understand the code:
     - host: The FreeSwitch address.
     - port: The FreeSwitch connection port.
     - password: Password used for ESL authentication.
+
  - To add functions as handlers for specific events we must use the decorator ``handle``. it receives a string with the name of the event as an argument.
  - Below the decorator we must have a function that receives a single argument (an event) this argument will be a dictionary that will have the same `key: value` scheme of the selected event.
  - The function can apply the logic you want to in the package, such as expand, save to a database, or whatever you prefer.
