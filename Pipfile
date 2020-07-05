@@ -11,6 +11,8 @@ travis = "*"
 flake8 = "*"
 black = "*"
 pytest = "*"
+sphinx = "*"
+sphinx-rtd-theme = "*"
 
 [packages]
 greenswitch = "*"
