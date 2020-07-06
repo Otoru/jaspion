@@ -33,7 +33,7 @@ ESL is a way to communicate with FreeSwitch. See more details [here](https://fre
 
 ## Docs
 
-The project documentation is in [here](https://github.com/Otoru/jaspion/wiki).
+The project documentation is in [here](https://otoru.github.io/jaspion/).
 
 ## How to contribute?
 
