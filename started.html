@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Get Started &mdash; Jaspion  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation Instructions" href="install.html" />
+    <link rel="prev" title="Welcome to jaspion Docs" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Jaspion
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Get Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#show-me-the-code">Show me the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-jaspion">Understanding Jaspion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#choosing-events">Choosing Events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Package Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Commnad Line Interface</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/monitoring_an_extension.html">Monitoring an Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/how_to_use_Sketch.html">How to use Sketch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/how_to_use_a_class_handler.html">How to use a class to handle events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/record_registers_in_redis.html">Record registers on Redis</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Jaspion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Get Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="get-started">
+<h1>Get Started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h1>
+<p>Looking forward to getting started? If you already have Jaspion installed, let’s see how to make a minimal application.</p>
+<div class="section" id="show-me-the-code">
+<h2>Show me the code<a class="headerlink" href="#show-me-the-code" title="Permalink to this headline">¶</a></h2>
+<p>Every Jaspion application will start with a simple structure like this:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jaspion</span> <span class="kn">import</span> <span class="n">Jaspion</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Jaspion</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8021</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;ClueCon&#39;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="s1">&#39;HEARTBEAT&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">heartbeat</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="understanding-jaspion">
+<h2>Understanding Jaspion<a class="headerlink" href="#understanding-jaspion" title="Permalink to this headline">¶</a></h2>
+<p>Let’s better understand the code:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>To create a jashpion instance, four arguments are required: name, host, port, and password.</dt><dd><ul>
+<li><p>name: Positional argument that serves to name the instance in its representation.</p></li>
+<li><p>host: The FreeSwitch address.</p></li>
+<li><p>port: The FreeSwitch connection port.</p></li>
+<li><p>password: Password used for ESL authentication.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>To add functions as handlers for specific events we must use the decorator <code class="docutils literal notranslate"><span class="pre">handle</span></code>. it receives a string with the name of the event as an argument.</p></li>
+<li><p>Below the decorator we must have a function that receives a single argument (an event) this argument will be a dictionary that will have the same <cite>key: value</cite> scheme of the selected event.</p></li>
+<li><p>The function can apply the logic you want to in the package, such as expand, save to a database, or whatever you prefer.</p></li>
+<li><p>Finally, we can call the <cite>run</cite> method so that app starts receiving the events.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="choosing-events">
+<h2>Choosing Events<a class="headerlink" href="#choosing-events" title="Permalink to this headline">¶</a></h2>
+<p>You can work on any event that FreeSwitch generates via ESL. Just be aware of the fact that if the searched event is a <strong>CUSTOM</strong>, you must enter your <strong>subclass</strong> name. The <a class="reference external" href="https://freeswitch.org/confluence/display/FREESWITCH/Event+List">FreeSwitch documentation</a> has more information about events.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="install.html" class="btn btn-neutral float-right" title="Installation Instructions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to jaspion Docs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Vitor Hugo de O. Vargas
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
