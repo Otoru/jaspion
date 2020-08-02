@@ -1,4 +1,5 @@
 import os
+import sys
 import importlib
 
 import click
@@ -36,7 +37,8 @@ def main():
     envvar="FSPASSWD",
     help="Password to ESL connect.",
 )
-def runserver(host, port, password):
+@click.option("--debug/--no-debug", default=False)
+def runserver(host, port, password, debug):
     """Connect in freeswitch and start a listner."""
     try:
         module = os.environ.get("JASPION_APP", None)
@@ -46,11 +48,23 @@ def runserver(host, port, password):
             module, sketch = module.split(":", 1)
 
         if module:
+            path = os.getcwd()
+            importlib.invalidate_caches()
+            sys.path.append(os.path.abspath(path))
             click.echo("Try to connect in esl://{}:{}".format(host, port))
+
+            if debug:
+                click.echo(
+                    click.style(f"Read file {path}/{module}.py", fg="blue")
+                )
+
             mod = importlib.import_module(module)
             result = getattr(mod, sketch)
 
-            click.echo("Listner: {}".format(result))
+
+            if debug:
+                click.echo(click.style(f"Listner: {result}", fg="blue"))
+
             app = Jaspion(host, port, password)
 
             if callable(result):
