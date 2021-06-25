@@ -17,7 +17,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/Otoru/Jaspion",
     author="Vitor Hugo de Oliveira Vargas",
-    author_email="vitor.hugo@sippulse.com",
+    author_email="contato@vitoru.dev",
     classifiers=[
         "Development Status :: 4 - Beta",
         "License :: OSI Approved :: MIT License",
